@@ -1,0 +1,5 @@
+.env
+env/
+desktop.ini
+experiments/
+notebooks/
