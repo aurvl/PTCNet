@@ -6,3 +6,9 @@ notebooks/
 *pyc
 __pycache__/
 FinancialTSC.egg-info/
+*.pth
+*.pt
+*.ckpt
+*.h5
+models/
+checkpoints/
