@@ -3,6 +3,7 @@ env/
 desktop.ini
 experiments/
 notebooks/
+scripts/
 *pyc
 __pycache__/
 FinancialTSC.egg-info/
@@ -10,5 +11,3 @@ FinancialTSC.egg-info/
 *.pt
 *.ckpt
 *.h5
-models/
-checkpoints/

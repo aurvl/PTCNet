@@ -345,7 +345,7 @@ if __name__ == "__main__":
     #     print(f"Horizon: {data[first_key]['horizon']} days")
     #     print(f"Features Shape: {data[first_key]['features'].shape}")
 
-    print("\n\nLoading pickle...")
+    # print("\n\nLoading pickle...")
     with open("data/processed_data_diverse.pkl", "rb") as f:
         raw_data = pickle.load(f)
         

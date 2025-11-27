@@ -200,7 +200,6 @@ def _get_data_fred(path: str, api_key: Optional[str], series_id: str, rename: st
     df.sort_index(inplace=True)
     return df
 
-
 def _compute_stop_margin_safe(
     price: float,
     Z: float,

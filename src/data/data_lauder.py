@@ -208,7 +208,7 @@ def print_target_distribution(dataset, name="Dataset"):
 # --- Execution Check ---
 if __name__ == "__main__":
     # 1. Run Prep (Only once)
-    prepare_and_save_datasets()
+    # prepare_and_save_datasets()
     
     # 2. Test Loading
     t_loader, v_loader, test_loader, input_dim = get_dataloaders(batch_size=16)
