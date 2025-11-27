@@ -1,15 +1,8 @@
 import random
 import time
-import sys
-import os
 import pickle
 import pandas as pd
 from sklearn.preprocessing import StandardScaler
-
-# Setting project root
-current_dir = os.path.dirname(os.path.abspath(__file__))
-project_root = os.path.abspath(os.path.join(current_dir, '..', '..'))
-sys.path.append(project_root)
 
 from src.feat.feat_engineer import (  # noqa: E402
     get_data_yf, f1, f2, f3, f4, f5, f6, create_y, 
@@ -260,6 +253,26 @@ def process_split_and_scale(
         
         X_test  = df[mask_test]
         y_test  = target[mask_test]
+
+        # --- FIX: DROP NaNs in Targets ---
+        # Targets can be NaN at the end of the series (horizon lookahead).
+        # We must remove these rows from both X and y.
+        
+        # Train
+        valid_train = ~y_train.isna()
+        X_train = X_train[valid_train]
+        y_train = y_train[valid_train]
+
+        # Val
+        valid_val = ~y_val.isna()
+        X_val = X_val[valid_val]
+        y_val = y_val[valid_val]
+
+        # Test
+        valid_test = ~y_test.isna()
+        X_test = X_test[valid_test]
+        y_test = y_test[valid_test]
+        # ---------------------------------
         
         # 4. Safety Check
         # If a stock is too recent (IPO in 2019), it has no Train data.

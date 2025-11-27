@@ -3,3 +3,6 @@ env/
 desktop.ini
 experiments/
 notebooks/
+*pyc
+__pycache__/
+FinancialTSC.egg-info/
